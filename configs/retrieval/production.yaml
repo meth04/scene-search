@@ -1,0 +1,15 @@
+model_family: driveretriever
+provider: production
+root_dir: data/indexing
+driveretriever:
+  provider: real
+  device: cpu
+  precision: fp32
+  local_files_only: true
+  source_roots: [data/videos]
+  source_registry_path: configs/sources/registry.json
+workflow:
+  provider: temporal
+  address: temporal:7233
+search:
+  ranking_config_version: window-nms-v1

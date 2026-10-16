@@ -1,0 +1,8 @@
+# Frozen integration. Scientific HOLD; safe EG2 default, explicit shadow/active allowed.
+index_root: outputs/driveevidence_v6/index
+source_roots:
+  - outputs/driveevidence_v2
+  - outputs/driveevidence_v3
+  - outputs/driveevidence_v6
+ranker: driveevidence_v6
+decision_provider: none

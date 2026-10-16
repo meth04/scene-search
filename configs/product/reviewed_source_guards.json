@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "review": "Master finalization phase J: preexisting source migration, frozen scientific artifacts retain historical hashes. Handoff section 16 recorded this stale guard before this pass. Runtime encoder, weights, config and selected scorer are unchanged.",
+  "files": {
+    "hybrid_v2/embeddinggemma2_index.py": {
+      "historical_sha256": "6e29a60e74962b0d42ae845954e78c00337f183f165462fd6c3a43260fe765c3",
+      "reviewed_sha256": "da12e619d274f690ea2e1920dd21f437b8fffc4a50d76c50546ed3c0003196f0",
+      "reason": "Preexisting index-builder source at commit e68f5fa is also the exact pre-edit snapshot documented in handoff line 1454. The original historical source blob is unavailable; its precise diff is UNKNOWN. Review keeps historical benchmark/model/config hashes intact and explicitly guards this existing builder version. This finalization does not edit the builder."
+    }
+  }
+}

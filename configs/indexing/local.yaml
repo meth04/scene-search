@@ -1,0 +1,44 @@
+# Experimental automatic metadata; see configs/metadata/siglip2-v1.yaml.
+model_family: driveretriever
+preprocessing_version: source-rgb-siglip2-v1
+driveretriever:
+  provider: real
+  checkpoint: data/model-cache/driveretriever-epoch4/best.pt
+  revision: 75de2d55ec2d0b4efc50b3e9ad70dba96a7b2fa2
+  device: cpu
+  precision: fp32
+  batch_size: 1
+  local_files_only: false
+  source_roots: [data/videos]
+quality:
+  scene_duration_ms: 10000
+  scene_stride_ms: 5000
+  embedding_frames: 12
+storage:
+  provider: local
+  root_dir: data/indexing-demo
+workflow:
+  provider: local
+uploads:
+  root_dir: data/videos/uploads
+  max_file_bytes: 1073741824
+  max_files: 10000
+scene_metadata:
+  model_id: google/siglip2-base-patch16-224
+  revision: 75de2d55ec2d0b4efc50b3e9ad70dba96a7b2fa2
+  device: cpu
+  precision: fp32
+  batch_size: 4
+  cache_dir: data/model-cache/huggingface
+  local_files_only: true
+  weather_prompt_version: weather-prompts-v1
+  lighting_prompt_version: lighting-prompts-v1
+  weather_policy:
+    min_score: 0.001
+    min_margin: 0.0001
+    min_agreement: 0.6666666666666666
+  lighting_policy:
+    min_score: 0.001
+    min_margin: 0.0001
+    min_agreement: 0.75
+  quality_status: not_evaluated

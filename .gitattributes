@@ -1,0 +1,15 @@
+# SHA-bound source/config bytes must remain LF on Windows checkouts.
+configs/models/embeddinggemma2.json text eol=lf
+hybrid_v2/driveevidence_v6.py text eol=lf
+hybrid_v2/driveevidence_v6_rerank.py text eol=lf
+hybrid_v2/driveevidence_v6_selected.py text eol=lf
+hybrid_v2/driveevidence_v6_service.py text eol=lf
+hybrid_v2/driveevidence_v6_worker.py text eol=lf
+hybrid_v2/embeddinggemma2.py text eol=lf
+hybrid_v2/embeddinggemma2_index.py text eol=lf
+hybrid_v2/embeddinggemma2_worker.py text eol=lf
+scripts/build_driveevidence_v3.py text eol=lf
+scripts/build_driveevidence_v4_external.py text eol=lf
+scripts/build_driveevidence_v6.py text eol=lf
+scripts/evaluate_driveevidence_v4_external.py text eol=lf
+scripts/prepare_driveevidence_v4.py text eol=lf

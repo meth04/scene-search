@@ -1,0 +1,21 @@
+# Experimental local thresholds; not calibrated on labeled road videos.
+# Scores are sigmoid similarities, not probabilities of label correctness.
+# Reject very low scores; require 8/12 weather and 9/12 lighting frame votes.
+model_id: google/siglip2-base-patch16-224
+revision: 75de2d55ec2d0b4efc50b3e9ad70dba96a7b2fa2
+device: cpu
+precision: fp32
+batch_size: 4
+cache_dir: data/model-cache/huggingface
+local_files_only: true
+weather_prompt_version: weather-prompts-v1
+lighting_prompt_version: lighting-prompts-v1
+weather_policy:
+  min_score: 0.001
+  min_margin: 0.0001
+  min_agreement: 0.6666666666666666
+lighting_policy:
+  min_score: 0.001
+  min_margin: 0.0001
+  min_agreement: 0.75
+quality_status: not_evaluated

@@ -1,0 +1,19 @@
+{
+  "config": {
+    "repo": "google/embeddinggemma-2",
+    "revision": "914f7f89142e33e77833254d9c9b90c3cef7303b",
+    "dimension": 768,
+    "normalize": true,
+    "query_prefix": "task: search result | query: ",
+    "audio_config": null,
+    "dtype": "float32",
+    "fps": 1,
+    "vision_tokens": 140,
+    "sampling": "uniform_endpoints",
+    "per_clip_fallback": false,
+    "representation": "EG2-B",
+    "input_kind": "frames",
+    "frame_count": 5
+  },
+  "config_sha256": "0e823ae887180985f7ac98834537a883c6a303ff3600b6a11ce1dce9f6a01922"
+}

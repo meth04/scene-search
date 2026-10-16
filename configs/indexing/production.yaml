@@ -1,0 +1,24 @@
+# Production template: metadata stays disabled pending real quality acceptance.
+# Enabling metadata requires evaluated policies and an evaluation report checksum.
+model_family: driveretriever
+preprocessing_version: source-rgb-siglip2-v1
+driveretriever:
+  provider: real
+  checkpoint: data/model-cache/driveretriever-epoch4/best.pt
+  revision: 75de2d55ec2d0b4efc50b3e9ad70dba96a7b2fa2
+  device: cpu
+  precision: fp32
+  local_files_only: true
+  source_roots: [data/videos]
+  source_registry_path: configs/sources/registry.json
+quality:
+  scene_duration_ms: 10000
+  scene_stride_ms: 5000
+  embedding_frames: 12
+storage:
+  provider: production
+  root_dir: data/indexing
+workflow:
+  provider: temporal
+  address: temporal:7233
+scene_metadata: null

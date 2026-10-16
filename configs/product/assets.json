@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "provenance": "Frozen runtime model/config/scorer hashes unchanged. The historical Stage3A learned head is provenance-only: product geometry uses YOLO/ByteTrack and never loads that checkpoint.",
+  "assets": {
+    "data/model-cache/embeddinggemma2/models--google--embeddinggemma-2/snapshots/914f7f89142e33e77833254d9c9b90c3cef7303b/model.safetensors": "197a32965d4b1105faf060417baa899e193fb73cd401f42ec9295234d5553d79",
+    "data/model-cache/yolo11n.pt": "0ebbc80d4a7680d14987a577cd21342b65ecfd94632bd9a8da63ae6417644ee1",
+    "data/model-cache/privacy/yunet.onnx": "8f2383e4dd3cfbb4553ea8718107fc0423210dc964f9f4280604804ed2552fa4",
+    "data/model-cache/privacy/plate-nano.pt": "2d95861825bb4184404344c9cf809f40fd31dba785fe54e8ba5b9a3583789822",
+    "data/model-cache/embeddinggemma2/models--google--embeddinggemma-2/snapshots/914f7f89142e33e77833254d9c9b90c3cef7303b/config.json": "b8f1e9931b57fbc054acdb445c41765d55b0074c58d145fa82839941ad1b5bb3",
+    "data/model-cache/embeddinggemma2/models--google--embeddinggemma-2/snapshots/914f7f89142e33e77833254d9c9b90c3cef7303b/config_sentence_transformers.json": "031e56a498d33c349ab489a21885bcfe25b4fcba841149dc99e1e90d4a7c28f5",
+    "data/model-cache/embeddinggemma2/models--google--embeddinggemma-2/snapshots/914f7f89142e33e77833254d9c9b90c3cef7303b/modules.json": "3d02572a0455b832de67fb8e63a54981bc7e8b46e337c95e917bd8122a533bfd",
+    "data/model-cache/embeddinggemma2/models--google--embeddinggemma-2/snapshots/914f7f89142e33e77833254d9c9b90c3cef7303b/preprocessor_config.json": "ea2ae257e901064abdd98dceb19f2b0da06af600bed15e0f99f5c85c37ee9d78",
+    "data/model-cache/embeddinggemma2/models--google--embeddinggemma-2/snapshots/914f7f89142e33e77833254d9c9b90c3cef7303b/processor_config.json": "168f6a08522f3ce5dea596d94d003af2fd691742d4f41fe1f9d8cce76bfbf69c",
+    "data/model-cache/embeddinggemma2/models--google--embeddinggemma-2/snapshots/914f7f89142e33e77833254d9c9b90c3cef7303b/sentence_bert_config.json": "b1bcd9f2dce3ae863b359e87d0710b5dbc3314a59ecb4e2f97c7778fc8e4b228",
+    "data/model-cache/embeddinggemma2/models--google--embeddinggemma-2/snapshots/914f7f89142e33e77833254d9c9b90c3cef7303b/tokenizer.json": "4d777ef5bdc1aa36227abdfb77c3e49e7b9c892d16e1b6bda41c393504828be4",
+    "data/model-cache/embeddinggemma2/models--google--embeddinggemma-2/snapshots/914f7f89142e33e77833254d9c9b90c3cef7303b/tokenizer.model": "e594c8a90eb08d8bda498ff4747977dc827ae0c3c56b5c0d41a605a22d02ef03",
+    "data/model-cache/embeddinggemma2/models--google--embeddinggemma-2/snapshots/914f7f89142e33e77833254d9c9b90c3cef7303b/tokenizer_config.json": "17bd5d6e9364ca49a534e1502076593317c298d4a663623091ed45388f004874",
+    "configs/models/embeddinggemma2.json": "f662582c962371b62bd57239e23252bd94ecb92cd8dbc402729917b03fe7a9dc",
+    "hybrid_v2/driveevidence_v6.py": "e4331b043ae3911139cc9ae850086423efbe8555edce32de952258e4d100b861",
+    "hybrid_v2/driveevidence_v6_rerank.py": "9cbf5a07435408be20300910a37ffdebc3fb0a172690c6893d3fafe7e6c6e203"
+  },
+  "code": {
+    "hybrid_v2/embeddinggemma2.py": "22e9669865d994a292acd0c55aa8e4c5e090d350e129243362930d018640f69c",
+    "hybrid_v2/embeddinggemma2_worker.py": "58518ab5e7bf2dd3670e6580c2f6a5e6ee1f737c7bb2d4829ca3e4f1153cb658",
+    "hybrid_v2/driveevidence_v6.py": "e4331b043ae3911139cc9ae850086423efbe8555edce32de952258e4d100b861",
+    "hybrid_v2/driveevidence_v6_rerank.py": "9cbf5a07435408be20300910a37ffdebc3fb0a172690c6893d3fafe7e6c6e203",
+    "hybrid_v2/driveevidence_v6_selected.py": "7f1558c0121d65e668739e6c306aed8552217c10537b820df15c86d73c64a5cb",
+    "hybrid_v2/driveevidence_v6_service.py": "17e88ae096277b5c94d148d11759d1d7396ca03b198c16c6ee26d15c036c97e7",
+    "hybrid_v2/driveevidence_v6_worker.py": "b91fc1fdbb6cf865a962a437be25610a33237e5a9ab7d3e3a011167793f3b4bc",
+    "scripts/build_driveevidence_v3.py": "398d48d3189907e11a13003f62853dc74405066bc92803b65cfe17d8e53958b9",
+    "scripts/build_driveevidence_v6.py": "27bcdcb61af621f179e3f5c51ee171f5c66ee80e311c6ab291b75cd7589727fd"
+  },
+  "provenance_assets": {
+    "outputs/driveretriever_stage3a/best_composite.pt": "9808e3edf81478e0f713d996ce81755b1d4214982e2d70eeb51cf36c88bc8ed7"
+  }
+}

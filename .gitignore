@@ -1,0 +1,94 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+venv/
+.venv/
+.venv_*/
+env/
+
+# Environment variables
+.env
+.env.local
+.env.production
+.env.*
+!.env.example
+remote.txt
+server3090_connection_state.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data (never commit large data)
+data/*
+!data/model-cache/
+data/model-cache/*
+!data/model-cache/driveretriever-epoch4/
+data/model-cache/driveretriever-epoch4/*
+!data/model-cache/driveretriever-epoch4/.gitkeep
+outputs/
+*.db
+*.sqlite3
+
+# Logs
+logs/
+*.log
+
+# Test coverage
+.pytest_cache/
+.pytest-review-*/
+.pytest-*-tmp/
+.pytest-*-diagnostic/
+.ruff_cache/
+htmlcov/
+.coverage
+coverage.xml
+
+# Docker
+docker-compose.override.yml
+
+# Node (frontend)
+node_modules/
+.next/
+out/
+.nuxt/
+
+# Build
+*.pyc
+*.pyo
+*.zip
+
+# AI logs — tracked structure, ignored content
+.ai-log/*.jsonl
+.ai-log/archive/
+
+# Local artifacts and working notes
+dumb-scribings
+/%SystemDrive%/
+/CODEX*
+/QWEN*
+/PROJECT*
+/DENSE*
+/TASKS*
+/SINGLE*
+
+# Disposable engine experiments and editor backups
+/tmp_*/
+*.py.bak*
+*.py.before_*
+*.tsbuildinfo
+.agents/skills

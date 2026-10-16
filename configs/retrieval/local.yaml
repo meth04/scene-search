@@ -1,0 +1,16 @@
+model_family: driveretriever
+provider: local
+root_dir: data/indexing-demo
+driveretriever:
+  provider: real
+  checkpoint: data/model-cache/driveretriever-epoch4/best.pt
+  revision: 75de2d55ec2d0b4efc50b3e9ad70dba96a7b2fa2
+  device: cpu
+  precision: fp32
+  batch_size: 1
+  local_files_only: false
+  source_roots: [data/videos]
+workflow:
+  provider: local
+search:
+  ranking_config_version: window-nms-v1
