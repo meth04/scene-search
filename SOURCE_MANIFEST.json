@@ -2,8 +2,8 @@
   "schema": 1,
   "files": {
     ".gitattributes": {
-      "bytes": 747,
-      "sha256": "34e1666f26bbdf1cca70ff759058555632b21ed0f38a42f6fdb031f9bcfb17e9"
+      "bytes": 841,
+      "sha256": "433ce09702b5163b5ae5c65545723ac7ce44df99900f6d60ac8a106c7872a198"
     },
     ".gitignore": {
       "bytes": 1217,

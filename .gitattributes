@@ -1,4 +1,6 @@
 # SHA-bound source/config bytes must remain LF on Windows checkouts.
+# Keep upstream license/model-card Markdown hard breaks verbatim.
+docs/licenses/* -whitespace
 configs/models/embeddinggemma2.json text eol=lf
 hybrid_v2/driveevidence_v6.py text eol=lf
 hybrid_v2/driveevidence_v6_rerank.py text eol=lf
