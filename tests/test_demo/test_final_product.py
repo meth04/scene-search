@@ -82,6 +82,30 @@ def test_missing_local_evidence_degrades_to_exact_eg2_and_reports_readiness(clie
     assert state["service_state"] == "DEGRADED_EG2_ONLY" and state["privacy_ready"] is True
 
 
+@pytest.mark.parametrize("initial,after", [("auto", "cpu"), ("cpu", "auto")])
+def test_device_change_preserves_private_collection_access(client, library, video, monkeypatch, initial, after):
+    from demo import product_privacy
+
+    monkeypatch.setenv("SCENESEARCH_DEVICE", initial)
+    scan = product_privacy.scan_video_privacy
+    devices = []
+
+    def observed_scan(raw, folder, cfg):
+        devices.append(cfg.plate_device)
+        assert cfg.fp16 is False
+        return scan(raw, folder, cfg)
+
+    monkeypatch.setattr(product_privacy, "scan_video_privacy", observed_scan)
+    uid, _ = ready(client, video)
+    assert devices and all(d == ("cpu" if initial == "cpu" else None) for d in devices)
+    root = f"/api/v1/library/{uid}"
+    grant = client.post(root + "/previews/0/url").json()
+    monkeypatch.setenv("SCENESEARCH_DEVICE", after)
+    assert client.get(grant["url"]).status_code == 200
+    assert client.get(grant["poster_url"]).status_code == 200
+    assert client.post(root + "/search", json={"query": "car"}).status_code == 200
+
+
 def test_atomic_publication_failure_is_private_and_retry_reuses_verified_vectors(client, library, video, monkeypatch):
     import demo.product_index as module
 

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from dataclasses import asdict
+from dataclasses import asdict, replace
 from pathlib import Path
 
 import cv2
@@ -20,7 +20,6 @@ def configuration():
     # Detection thresholds, mandatory global passes and ROI refinement stay intact.
     return PrivacyConfig(
         profile="gtx1650",
-        plate_device="cpu" if requested_device() == "cpu" else None,
         quality_mode="v2",
         detect_every=1,
         face_roi=True,
@@ -37,7 +36,9 @@ def prepare(raw, folder, duration):
     folder = Path(folder)
     folder.mkdir(parents=True, exist_ok=True)
     cfg = configuration()
-    scan_video_privacy(raw, folder / "tracks", cfg)
+    # Device selection changes execution, not the frozen privacy policy identity.
+    execution_cfg = replace(cfg, plate_device="cpu") if requested_device() == "cpu" else cfg
+    scan_video_privacy(raw, folder / "tracks", execution_cfg)
     load_privacy_tracks(folder / "tracks", raw)
     safe = folder / "safe.mp4"
     safe.unlink(missing_ok=True)  # Only private, unpublished work is replaceable.
