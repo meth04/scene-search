@@ -58,6 +58,7 @@ def source_files():
     for folder in ("configs/product", "configs/models", "configs/indexing", "configs/retrieval", "configs/metadata"):
         selected.update(p for p in (ROOT / folder).glob("*") if p.suffix in {".json", ".yaml", ".lock"})
     selected.add(ROOT / "configs/hybrid/driveevidence_v6.yaml")
+    selected.update((ROOT / "migrations").glob("*.sql"))
     for folder in ("docs/licenses", "tests/test_demo"):
         selected.update(p for p in (ROOT / folder).rglob("*") if p.is_file() and "__pycache__" not in p.parts)
     for name in (
@@ -77,7 +78,7 @@ def source_files():
     for path in selected:
         if not path.resolve().is_relative_to(ROOT) or path.name in {"remote.txt", ".env"}:
             raise ValueError("Invalid release source")
-        if path.suffix in {".py", ".json", ".yaml", ".ps1", ".md", ".lock"}:
+        if path.suffix in {".py", ".json", ".yaml", ".ps1", ".md", ".lock", ".sql", ".toml", ".txt"}:
             value = path.read_text(encoding="utf-8-sig")
             if re.search(
                 r"-----BEGIN (?:OPENSSH |RSA |EC )?PRIVATE KEY-----|gh[pousr]_[A-Za-z0-9]{30,}|sk-[A-Za-z0-9]{32,}|AKIA[A-Z0-9]{16}",

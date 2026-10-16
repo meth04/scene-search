@@ -457,6 +457,22 @@
       "bytes": 1095,
       "sha256": "14c84f8afe0c85e3124a45e4153e5008778c1b837407cd8883db56453e588335"
     },
+    "migrations/001_indexing.sql": {
+      "bytes": 2148,
+      "sha256": "2d1e8d769e175d150bcf93adc55eae4be19d367f5f382fe30b23e79eadd053e4"
+    },
+    "migrations/002_retrieval.sql": {
+      "bytes": 5709,
+      "sha256": "3668c503356172cd1551995d0e2d16a25fd03f2acc8be333a113a061ba2364f2"
+    },
+    "migrations/003_driveretriever_window_indexing.sql": {
+      "bytes": 2631,
+      "sha256": "401a657cd4498409690994f1e4171ced66c6636227ad819d1d8164c2cea84349"
+    },
+    "migrations/004_driveretriever_retrieval.sql": {
+      "bytes": 726,
+      "sha256": "a6126fa206b431725aec1a491b58fcaff39e33219145052199509d8ec6b33a09"
+    },
     "README.md": {
       "bytes": 1848,
       "sha256": "ac057969c5d58f64ecccbf2e61fe2eb7ce80ce03bf62e3669862f2ef40ffb1e7"
@@ -486,8 +502,8 @@
       "sha256": "e23d228554555288774d5681cf731c2175cffb6ddc1a89f4ba55f6f4719e6c2e"
     },
     "scripts/package_product_release.py": {
-      "bytes": 5914,
-      "sha256": "c62c36d9481e3c07a9afb6587d55f7a5c4451fdfd987857d7efc0c5b58ae58d1"
+      "bytes": 5996,
+      "sha256": "5fc114fa5c6068a0ba3487e2aced079129261a4041a2a6e1cd1669cb17d7e579"
     },
     "scripts/prepare_driveevidence.py": {
       "bytes": 10444,
