@@ -9,7 +9,7 @@ import pytest
 
 from demo.product_assets import runtime_model_assets
 from demo.product_runtime import execution_device
-from scripts.install_product_assets import destination, download, import_bundle
+from scripts.install_product_assets import destination, download, import_bundle, install_tools
 
 
 @pytest.mark.parametrize("path", ["../outside", "/absolute", "C:/Windows/file", "folder\\file"])
@@ -79,6 +79,30 @@ def test_unused_historical_head_is_optional_but_runtime_hashes_remain_exact():
     ):
         with pytest.raises(ValueError):
             runtime_model_assets(stored, manifest)
+
+
+@pytest.mark.parametrize("corrupted", [False, True])
+def test_interrupted_tool_extraction_resumes_only_identical_bytes(tmp_path, corrupted):
+    archive = tmp_path / "tools.zip"
+    with zipfile.ZipFile(archive, "w") as bundle:
+        for name in ("ffmpeg.exe", "ffprobe.exe"):
+            bundle.writestr("build/bin/" + name, b"pinned " + name.encode())
+    record = {
+        "path": "tools.zip",
+        "bytes": archive.stat().st_size,
+        "sha256": hashlib.sha256(archive.read_bytes()).hexdigest(),
+    }
+    existing = tmp_path / "data/bin/ffmpeg/bin/ffmpeg.exe"
+    existing.parent.mkdir(parents=True)
+    existing.write_bytes(b"changed" if corrupted else b"pinned ffmpeg.exe")
+    if corrupted:
+        with pytest.raises(ValueError, match="changed"):
+            install_tools(tmp_path, record, offline=True)
+        assert existing.read_bytes() == b"changed"
+    else:
+        install_tools(tmp_path, record, offline=True)
+        assert (existing.parent / "ffprobe.exe").read_bytes() == b"pinned ffprobe.exe"
+        assert (existing.parent.parent / "receipt.json").is_file()
 
 
 @pytest.mark.parametrize(

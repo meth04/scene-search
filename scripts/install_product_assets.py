@@ -145,15 +145,21 @@ def install_tools(root, record, *, repair=False, offline=False):
                 raise ValueError("FFmpeg binary size invalid")
             relative = "data/bin/ffmpeg/bin/" + binary
             target = destination(root, relative)
-            if target.exists() and not repair:
-                raise ValueError("Existing managed FFmpeg changed; use -Repair")
             target.parent.mkdir(parents=True, exist_ok=True)
             temporary = target.with_name(target.name + ".install")
             with archive.open(entry) as source, temporary.open("wb") as stream:
                 shutil.copyfileobj(source, stream, length=1024**2)
             outputs[relative] = {"bytes": temporary.stat().st_size, "sha256": checksum(temporary)}
+            if target.exists() and not repair:
+                same = valid(target, outputs[relative])
+                temporary.unlink()
+                if not same:
+                    raise ValueError("Existing managed FFmpeg changed; use -Repair")
+                continue  # Resume an interrupted extraction without replacing valid bytes.
             os.replace(temporary, target)
-    receipt_path.write_text(json.dumps({"archive_sha256": record["sha256"], "files": outputs}, indent=2))
+    temporary_receipt = receipt_path.with_suffix(".install")
+    temporary_receipt.write_text(json.dumps({"archive_sha256": record["sha256"], "files": outputs}, indent=2))
+    os.replace(temporary_receipt, receipt_path)
 
 
 def main():

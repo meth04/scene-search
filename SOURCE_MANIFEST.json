@@ -482,8 +482,8 @@
       "sha256": "9d01b4a76c3eae20c66f40374edf4462ad356d23adb03a750a9717ba2c55e56d"
     },
     "scripts/install_product_assets.py": {
-      "bytes": 8566,
-      "sha256": "143288f91e79295cafbe82f3de64334c6478dbce059102fd8e7cf1d6504f677d"
+      "bytes": 8896,
+      "sha256": "e23d228554555288774d5681cf731c2175cffb6ddc1a89f4ba55f6f4719e6c2e"
     },
     "scripts/package_product_release.py": {
       "bytes": 5914,
@@ -1154,8 +1154,8 @@
       "sha256": "d2c741cc9dad74fc999ff9510a9eaabccde6628ab22632e169ec21b02f61f3cc"
     },
     "tests/test_installation.py": {
-      "bytes": 3408,
-      "sha256": "b3b09d2e51765007de5dc1c14759256d84cd3ec409ebd351ebc06d21878e7c86"
+      "bytes": 4517,
+      "sha256": "c35cb0d1be8d0bb6e3e91c546383433d4f93aa2d8bbeb76ce7ae87478f89246b"
     },
     "THIRD_PARTY_NOTICES.md": {
       "bytes": 2856,
